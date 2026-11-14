@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" role="img" aria-labelledby="t d">
+  <title id="t">Bug Scanner</title>
+  <desc id="d">An automated scan beam sweeps a web application, catches a moving bug, locks a target reticle on it and reports BUG IDENTIFIED, TEST EXECUTION COMPLETE.</desc>
+  <defs>
+    <linearGradient id="beam" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="0.85" stop-color="#22d3ee" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" x2="1">
+      <stop offset="0" stop-color="#2f6bff"/>
+      <stop offset="1" stop-color="#39ff88"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#1b2430" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="view"><rect x="20" y="52" width="540" height="228" rx="6"/></clipPath>
+  </defs>
+
+  <!-- frame -->
+  <rect width="900" height="300" rx="12" fill="#0b0f14"/>
+  <rect x="0.5" y="0.5" width="899" height="299" rx="12" fill="none" stroke="#1f2a37"/>
+  <g font-family="'JetBrains Mono','Fira Code',Consolas,'Courier New',monospace">
+    <circle cx="24" cy="24" r="5" fill="#ff5f57"/><circle cx="40" cy="24" r="5" fill="#febc2e"/><circle cx="56" cy="24" r="5" fill="#28c840"/>
+    <text x="78" y="28" font-size="12" fill="#6b7a8c">qa://bug-scanner — target: web-app/checkout</text>
+
+    <!-- status chip -->
+    <g font-size="12" font-weight="700">
+      <g>
+        <rect x="726" y="12" width="156" height="24" rx="12" fill="#06262c" stroke="#22d3ee"/>
+        <circle cx="742" cy="24" r="4" fill="#22d3ee"><animate attributeName="opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite"/></circle>
+        <text x="754" y="28" fill="#22d3ee">SCANNING</text>
+        <animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="1;0;0" keyTimes="0;0.47;1"/>
+      </g>
+      <g opacity="0">
+        <rect x="726" y="12" width="156" height="24" rx="12" fill="#2a0d14" stroke="#ff4d6d"/>
+        <circle cx="742" cy="24" r="4" fill="#ff4d6d"><animate attributeName="opacity" values="1;0.2;1" dur="0.4s" repeatCount="indefinite"/></circle>
+        <text x="754" y="28" fill="#ff4d6d">BUG DETECTED</text>
+        <animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0;0" keyTimes="0;0.47;0.72;1"/>
+      </g>
+      <g opacity="0">
+        <rect x="726" y="12" width="156" height="24" rx="12" fill="#0a2617" stroke="#39ff88"/>
+        <path d="M737 24l4 4 7-8" fill="none" stroke="#39ff88" stroke-width="2"/>
+        <text x="754" y="28" fill="#39ff88">COMPLETE</text>
+        <animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1" keyTimes="0;0.72"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- application under test -->
+  <rect x="20" y="52" width="540" height="228" rx="6" fill="#0e141b" stroke="#1f2a37"/>
+  <g clip-path="url(#view)">
+    <rect x="20" y="52" width="540" height="228" fill="url(#grid)"/>
+    <g fill="#1a2430">
+      <rect x="40" y="70" width="140" height="12" rx="3"/>
+      <rect x="420" y="70" width="120" height="12" rx="3"/>
+      <rect x="40" y="100" width="500" height="1" fill="#1f2a37"/>
+      <rect x="40" y="118" width="230" height="10" rx="3"/>
+      <rect x="40" y="136" width="180" height="10" rx="3"/>
+      <rect x="300" y="118" width="240" height="56" rx="5"/>
+      <rect x="40" y="200" width="160" height="26" rx="4"/>
+      <rect x="220" y="200" width="160" height="26" rx="4"/>
+      <rect x="400" y="240" width="140" height="24" rx="5" fill="#132235"/>
+      <rect x="40" y="244" width="200" height="8" rx="3"/>
+    </g>
+
+    <!-- scan beam -->
+    <g>
+      <rect x="-20" y="52" width="80" height="228" fill="url(#beam)"/>
+      <rect x="58" y="52" width="2" height="228" fill="#22d3ee" filter="url(#glow)"/>
+      <animateTransform attributeName="transform" type="translate" dur="8s" repeatCount="indefinite"
+        values="0 0;320 0;320 0;320 0" keyTimes="0;0.45;0.92;1"/>
+      <animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="1;1;0;0" keyTimes="0;0.47;0.6;1"/>
+    </g>
+
+    <!-- bug -->
+    <g>
+      <g transform="rotate(90)">
+        <g stroke="#ff4d6d" stroke-width="2" stroke-linecap="round" fill="none">
+          <g>
+            <path d="M-4 -6l-6 -9M4 -6l6 -9"/>
+            <path d="M-6 -2l-11 -5M-6 4l-11 3M-4 9l-8 7"/>
+            <path d="M6 -2l11 -5M6 4l11 3M4 9l8 7"/>
+            <animateTransform attributeName="transform" type="rotate" values="-6;6;-6" dur="0.25s" repeatCount="indefinite"/>
+          </g>
+          <path d="M-3 -16l-4 -6M3 -16l4 -6"/>
+        </g>
+        <ellipse cx="0" cy="2" rx="8" ry="11" fill="#ff4d6d"/>
+        <circle cx="0" cy="-12" r="5" fill="#ff4d6d"/>
+        <path d="M0 -7V13" stroke="#0b0f14" stroke-width="1.5"/>
+      </g>
+      <animateTransform attributeName="transform" type="translate" dur="8s" repeatCount="indefinite"
+        values="220 168;262 160;300 176;340 166;378 168;378 168;378 168" keyTimes="0;0.11;0.22;0.33;0.45;0.92;1"/>
+      <animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="1;1;0.35;1;0.35;1;1;0" keyTimes="0;0.45;0.48;0.51;0.54;0.57;0.9;1"/>
+    </g>
+
+    <!-- target reticle -->
+    <g opacity="0" transform="translate(378 168)">
+      <g>
+        <g fill="none" stroke="#39ff88" stroke-width="2.5" filter="url(#glow)">
+          <path d="M-34 -20v-14h14M20 -34h14v14M34 20v14h-14M-20 34h-14v-14"/>
+        </g>
+        <circle r="22" fill="none" stroke="#39ff88" stroke-width="1" stroke-dasharray="4 5">
+          <animateTransform attributeName="transform" type="rotate" values="0;360" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <path d="M-46 0h-12M46 0h12M0 -46v-12M0 46v12" stroke="#39ff88" stroke-width="1.5"/>
+        <animateTransform attributeName="transform" type="scale" dur="8s" repeatCount="indefinite"
+          values="2.2;2.2;1;1;1" keyTimes="0;0.46;0.52;0.95;1"/>
+      </g>
+      <g font-family="'JetBrains Mono','Fira Code',Consolas,monospace" font-size="11" font-weight="700">
+        <rect x="40" y="-56" width="112" height="20" rx="3" fill="#0a2617" stroke="#39ff88"/>
+        <text x="48" y="-42" fill="#39ff88">TARGET LOCKED</text>
+        <animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.56;0.96"/>
+      </g>
+      <animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.46;0.5;0.92;0.97;1"/>
+    </g>
+  </g>
+
+  <!-- terminal -->
+  <rect x="580" y="52" width="300" height="228" rx="6" fill="#070a0e" stroke="#1f2a37"/>
+  <g font-family="'JetBrains Mono','Fira Code',Consolas,'Courier New',monospace" font-size="12">
+    <text x="596" y="78" fill="#6b7a8c">$ <tspan fill="#e6edf3">run scan --suite regression</tspan></text>
+    <text x="596" y="102" fill="#22d3ee" opacity="0">› crawling DOM nodes…
+      <animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.04;0.97"/></text>
+    <text x="596" y="122" fill="#22d3ee" opacity="0">› validating UI + API flows
+      <animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.18;0.97"/></text>
+    <text x="596" y="142" fill="#22d3ee" opacity="0">› checkout.form#submit …
+      <animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.32;0.97"/></text>
+    <text x="596" y="166" fill="#ff4d6d" font-weight="700" opacity="0">✖ STATUS: BUG DETECTED
+      <animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.48;0.97"/></text>
+    <text x="596" y="186" fill="#c9d4e0" opacity="0">› captured trace + screenshot
+      <animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.58;0.97"/></text>
+    <text x="596" y="206" fill="#c9d4e0" opacity="0">› defect logged · severity HIGH
+      <animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.65;0.97"/></text>
+
+    <!-- progress -->
+    <rect x="596" y="222" width="268" height="6" rx="3" fill="#141c26"/>
+    <rect x="596" y="222" width="0" height="6" rx="3" fill="url(#bar)">
+      <animate attributeName="width" dur="8s" repeatCount="indefinite" values="0;160;160;268;268;0" keyTimes="0;0.45;0.55;0.72;0.97;1"/>
+    </rect>
+
+    <g opacity="0" font-weight="700" font-size="11.5">
+      <rect x="596" y="240" width="268" height="26" rx="4" fill="#0a2617" stroke="#39ff88"/>
+      <text x="730" y="257" text-anchor="middle" fill="#39ff88" textLength="250" lengthAdjust="spacingAndGlyphs">BUG IDENTIFIED | TEST EXECUTION COMPLETE</text>
+      <animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.72;0.75;0.95;1"/>
+    </g>
+  </g>
+</svg>
