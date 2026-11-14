@@ -8,9 +8,14 @@
 
 <br/>
 
+### 🌐 Live Portfolio: [uday-punia-portfolio.vercel.app](https://uday-punia-portfolio.vercel.app/)
+<sub>QA automation lab · bug-detection demo · frameworks · experience</sub>
+
+<br/>
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0e2a33?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3QgeD0iMyIgeT0iOSIgd2lkdGg9IjQiIGhlaWdodD0iMTIiIGZpbGw9IiMyMmQzZWUiLz48Y2lyY2xlIGN4PSI1IiBjeT0iNSIgcj0iMi4zIiBmaWxsPSIjMjJkM2VlIi8%2BPHBhdGggZD0iTTEwIDloMy44djEuOGMuNi0xLjEgMi0yLjEgNC0yLjEgMy4zIDAgNC4yIDIuMSA0LjIgNVYyMWgtNHYtNi40YzAtMS41LS4zLTIuOC0xLjktMi44LTEuNyAwLTIuMSAxLjItMi4xIDIuOFYyMWgtNHoiIGZpbGw9IiMyMmQzZWUiLz48L3N2Zz4%3D&labelColor=0b0f14)](https://www.linkedin.com/in/uday-punia-000b60253/)
 [![Email](https://img.shields.io/badge/Email-Get_in_touch-0d2a1b?style=for-the-badge&logo=gmail&logoColor=39ff88&labelColor=0b0f14)](mailto:udaypunia9027@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-142045?style=for-the-badge&logo=vercel&logoColor=ffffff&labelColor=0b0f14)](https://uday-punia-portfolio.vercel.app/)
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Visit-142045?style=for-the-badge&logo=vercel&logoColor=ffffff&labelColor=0b0f14)](https://uday-punia-portfolio.vercel.app/)
 
 </div>
 
@@ -62,9 +67,9 @@ I'm a **QA Automation Engineer with 2+ years in software testing**, focused on m
 | Area | Toolkit |
 |:--|:--|
 | **UI Automation** | Selenium WebDriver ◆ · Playwright ◆ |
-| **Programming** | Java ◆ · JavaScript ◆ · TypeScript ○ |
-| **API Testing** | Postman ◆ · REST Assured ◇ · SoapUI ○ |
-| **Frameworks & Patterns** | TestNG ◆ · Page Object Model ◆ · JUnit ◇ · Data-Driven ◇ · Hybrid ◇ |
+| **Programming** | Java ◆ · JavaScript ◆ · TypeScript ◇ |
+| **API Testing** | Postman ◆ · SoapUI ◆ · REST Assured ◇ |
+| **Frameworks & Patterns** | TestNG ◆ · Page Object Model ◆ · Data-Driven ◆ · JUnit ◇ · Hybrid ◇ |
 | **Performance** | Apache JMeter ◇ |
 | **Build & Dependencies** | Maven ◆ · npm ◆ |
 | **CI/CD & DevOps** | GitHub Actions ◇ · Jenkins ◇ · Linux ◇ · Docker ○ |
